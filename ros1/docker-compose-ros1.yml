@@ -15,6 +15,6 @@ services:
       - "6080:80"
       - "11311:11311"
     environment:
-      - ROS_MASTER_URI=http://host.docker.internal:11311
-      - ROS_HOSTNAME=host.docker.internal
+      - ROS_MASTER_URI=http:localhost:11311
+      - ROS_HOSTNAME=localhost
       - TURTLEBOT3_MODEL=burger
