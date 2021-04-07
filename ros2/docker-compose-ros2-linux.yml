@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+
+  ros2-dashing:
+    build: ./docker/ros2_dashing
+    container_name: "ros2-dashing"
+    volumes:
+      - ./app:/home/ubuntu/app
+    network_mode: 'host'
+    environment:
+      - TURTLEBOT3_MODEL=burger
