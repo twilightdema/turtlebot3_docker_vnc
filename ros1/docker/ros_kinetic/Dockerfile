@@ -1,5 +1,6 @@
 FROM ct2034/vnc-ros-kinetic-full
 
+RUN echo "Acquire::Check-Valid-Until \"false\";\nAcquire::Check-Date \"false\";" | cat > /etc/apt/apt.conf.d/10no--check-valid-until
 RUN apt-get -y update
 
 RUN apt-get install -y ros-kinetic-joy ros-kinetic-teleop-twist-joy \

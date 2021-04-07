@@ -10,11 +10,9 @@ services:
     expose:
       - "80"
       - "6080"
-      - "11311"
+      - "14900-14915/udp"
     ports:
       - "6080:80"
-      - "11311:11311"
+      - "14900-14915:14900-14915/udp"
     environment:
-      - ROS_MASTER_URI=http://localhost:11311
-      - ROS_HOSTNAME=localhost
       - TURTLEBOT3_MODEL=burger
