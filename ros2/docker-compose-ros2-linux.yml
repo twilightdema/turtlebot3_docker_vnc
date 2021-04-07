@@ -5,10 +5,14 @@ services:
   ros2-dashing:
     build: ./docker/ros2_dashing
     container_name: "ros2-dashing"
+    hostname: $HOSTNAME
     volumes:
       - ./app:/home/ubuntu/app
+      - /tmp/.X11-unix:/tmp/.X11-unix
     network_mode: 'host'
+    ipc: 'host'
     environment:
       - TURTLEBOT3_MODEL=burger
+      - DISPLAY=$DISPLAY
     entrypoint: /bin/bash
     command: -c "/home/ubuntu/app/startup.sh"
