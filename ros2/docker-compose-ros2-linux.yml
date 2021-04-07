@@ -10,3 +10,5 @@ services:
     network_mode: 'host'
     environment:
       - TURTLEBOT3_MODEL=burger
+    entrypoint: /bin/bash
+    command: -c "/home/ubuntu/app/startup.sh"
