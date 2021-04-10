@@ -2,17 +2,22 @@ version: '2'
 
 services:
 
-  ros2-dashing:
-    build: ./docker/ros2_dashing
-    container_name: "ros2-dashing"
+  ros2-dashing-linux:
+    build: ./docker/ros2_dashing_linux
+    container_name: "ros2-dashing_linux"
     hostname: $HOSTNAME
+    devices: 
+      - /dev/dri:/dev/dri
     volumes:
       - ./app:/home/ubuntu/app
       - /tmp/.X11-unix:/tmp/.X11-unix
+      - /run/dbus/:/run/dbus/
+      - /dev/shm:/dev/shm
     network_mode: 'host'
+    privileged: true
     ipc: 'host'
     environment:
       - TURTLEBOT3_MODEL=burger
       - DISPLAY=$DISPLAY
     entrypoint: /bin/bash
-    command: -c "/home/ubuntu/app/startup.sh"
+    command: -C "startlxde"
