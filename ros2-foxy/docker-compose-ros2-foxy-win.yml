@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+
+  ros2-foxy:
+    build: ./docker/ros2_foxy
+    container_name: "ros2-foxy"
+    volumes:
+      - ./app:/home/ubuntu/app
+    expose:
+      - "80"
+      - "6080"
+      - "14900-14915/udp"
+    ports:
+      - "6080:80"
+      - "14900-14915:14900-14915/udp"
+    environment:
+      - TURTLEBOT3_MODEL=burger

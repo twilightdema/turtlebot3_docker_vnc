@@ -1,0 +1,24 @@
+version: '2.3'
+
+services:
+
+  ros2-foxy-linux:
+    runtime: "nvidia"
+    build: ./docker/ros2_foxy_linux
+    container_name: "ros2-foxy_linux"
+    hostname: $HOSTNAME
+    devices: 
+      - /dev/dri:/dev/dri
+    volumes:
+      - ./app:/home/ubuntu/app
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /run/dbus/:/run/dbus/
+      - /dev/shm:/dev/shm
+    network_mode: 'host'
+    privileged: true
+    ipc: 'host'
+    environment:
+      - TURTLEBOT3_MODEL=burger
+      - DISPLAY=$DISPLAY
+    entrypoint: /bin/bash
+    command: -C "startlxde"

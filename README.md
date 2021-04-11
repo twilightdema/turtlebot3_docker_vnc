@@ -9,7 +9,7 @@ This repository provides dockerfiles and all scripts needed to run Turtlebot3 ex
 Start docker container using the script below:
 
 ```bash
-cd ros1
+cd ros1-kinetic
 sudo ./start_ros1.sh
 ```
 
@@ -18,7 +18,7 @@ sudo ./start_ros1.sh
 Start docker container using the script below:
 
 ```bash
-cd ros2
+cd ros2-dashing
 sudo ./start_ros2.sh
 ```
 
